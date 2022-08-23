@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class GamePanel extends JPanel implements ActionListener {
+public class GamePanel extends JPanel implements ActionListener{
 
     static final int SCREEN_WIDTH = 600;
     static final int SCREEN_HEIGHT = 600;
@@ -47,13 +47,6 @@ public class GamePanel extends JPanel implements ActionListener {
     }
     public void draw(Graphics g) {
         if (running) {
-            /*
-            //grid for reference. REMOVE AT END
-            for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
-                g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
-                g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
-            }
-             */
             //draw apple
             g.setColor(Color.red);
             g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
@@ -66,7 +59,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 } else {
                     g.setColor(new Color(45, 180, 0));
                     // multicolored snake
-                    // g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+                    g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
             }
@@ -137,6 +130,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
     public void gameOver(Graphics g){
+
         g.setColor(Color.orange);
         g.setFont(new Font("Comic Sans", Font.BOLD, 40));
         FontMetrics metricsScore = getFontMetrics(g.getFont());
